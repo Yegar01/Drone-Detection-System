@@ -3,10 +3,10 @@ import streamlit as st
 from ultralytics import YOLO
 import numpy as np
 from PIL import Image
-from streamlit_modal import Modal
+import os
 
 conf=0.5
-model = YOLO('C:\\Users\\dattu\\OneDrive\\Desktop\\drone\\Drone-Detection-System\\best-300e.pt')
+model = YOLO(os.getcwd()+'/best-300e.pt')
 
 st.session_state.page=1
 
