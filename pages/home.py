@@ -9,6 +9,9 @@ model = YOLO('best-300e.pt')
 
 st.session_state.page=1
 
+def warning():
+    st.warning('Drone has been detected', icon="⚠️")
+
 def live_camera(run,conf):
     FRAME_WINDOW = st.image([])
     camera = cv2.VideoCapture(0)
