@@ -3,6 +3,7 @@ import streamlit as st
 from ultralytics import YOLO
 import numpy as np
 from PIL import Image
+from streamlit_modal import Modal
 
 conf=0.5
 model = YOLO('C:\\Users\\dattu\\OneDrive\\Desktop\\drone\\Drone-Detection-System\\best-300e.pt')
@@ -22,6 +23,7 @@ def live_camera(run,conf):
         annotated_frame = results[0].plot()
         FRAME_WINDOW.image(annotated_frame)
         if hasattr(results[0].boxes, 'id') and results[0].boxes.id is not None:
+            run=False
             warning()
     else:
         st.write('Stopped')
