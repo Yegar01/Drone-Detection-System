@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 conf=0.5
-model = YOLO('best-300e.pt')
+model = YOLO('C:\\Users\\dattu\\OneDrive\\Desktop\\drone\\Drone-Detection-System\\best-300e.pt')
 
 st.session_state.page=1
 
@@ -14,13 +14,15 @@ def warning():
 
 def live_camera(run,conf):
     FRAME_WINDOW = st.image([])
-    camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1)
     while run:
         _, frame = camera.read()
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        result = model.track(frame,persist=True,conf=conf,iou=0.5)
-        annotated_frame = result[0].plot()
+        results = model.track(frame,persist=True,conf=conf,iou=0.5)
+        annotated_frame = results[0].plot()
         FRAME_WINDOW.image(annotated_frame)
+        if hasattr(results[0].boxes, 'id') and results[0].boxes.id is not None:
+            warning()
     else:
         st.write('Stopped')
 st.title("Drone Detection System")
