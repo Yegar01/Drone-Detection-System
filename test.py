@@ -1,12 +1,15 @@
 from ultralytics import YOLO
 import cv2
 import os
+from var import variable
 
-print(os.getcwd())
-print(os.listdir(os.getcwd()))
-print(os.path.dirname(os.getcwd())) 
+print(variable.value.conf)
 
-model = YOLO(os.getcwd()+'/best-300e.pt')
+# print(os.getcwd())
+# print(os.listdir(os.getcwd()))
+# print(os.path.dirname(os.getcwd())) 
+
+# model = YOLO(os.getcwd()+'/best-300e.pt')
 
 # cap = cv2.VideoCapture(1)
 # while True:

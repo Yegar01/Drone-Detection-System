@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
-st.page_link('pages/home.py',label='home')
-st.page_link('pages/user.py',label='user')
+st.page_link(os.getcwd()+'/pages/home.py',label='home')
+st.page_link(os.getcwd()+'/pages/user.py',label='user')
