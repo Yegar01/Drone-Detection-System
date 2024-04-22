@@ -28,7 +28,7 @@ def live_camera(run,conf):
     else:
         st.write('Stopped')
 st.title("Drone Detection System")
-run = st.checkbox('Run')
+run = st.button('Run')
 st.sidebar.title('Drone Detection System')
 uploaded_file = st.sidebar.file_uploader('Upload File',type=['png', 'jpeg', 'jpg'])
 conf = st.sidebar.number_input('Enter Conf. Value',value=conf)
