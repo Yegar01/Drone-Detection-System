@@ -16,21 +16,21 @@ def video_frame_callback(frame):
     #     variable.warning()
     return av.VideoFrame.from_ndarray(result[0].plot(), format="bgr24")
 
-def live_camera(conf):
-    st.write('LIVE CAMERA ON')
-    FRAME_WINDOW = st.image([])
-    camera = cv2.VideoCapture(0)
-    while camera.isOpened():
-        _, frame = camera.read()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        results = model.track(frame,persist=True,conf=conf,iou=0.5)
-        annotated_frame = results[0].plot()
-        FRAME_WINDOW.image(annotated_frame)
-        if hasattr(results[0].boxes, 'id') and results[0].boxes.id is not None:
-            variable.warning()
-            break
-    else:
-        st.write('Stopped')
+# def live_camera(conf):
+#     st.write('LIVE CAMERA ON')
+#     FRAME_WINDOW = st.image([])
+#     camera = cv2.VideoCapture(0)
+#     while camera.isOpened():
+#         _, frame = camera.read()
+#         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#         results = model.track(frame,persist=True,conf=conf,iou=0.5)
+#         annotated_frame = results[0].plot()
+#         FRAME_WINDOW.image(annotated_frame)
+#         if hasattr(results[0].boxes, 'id') and results[0].boxes.id is not None:
+#             variable.warning()
+#             break
+#     else:
+#         st.write('Stopped')
 st.title("Drone Detection System")
 st.write("Welcome to our Drone Detection System. This app demonstrates the capabilities of our cutting-edge system for detecting unauthorized drone activity.")
 conf = st.sidebar.number_input('Enter Conf. Value',value=conf)
