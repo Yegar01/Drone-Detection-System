@@ -12,10 +12,9 @@ conf = variable.value.conf
 def video_frame_callback(frame):
     image = frame.to_ndarray(format="bgr24")
     result = model.track(image,persist=True, conf=conf, iou=0.5)
-    annotated_frame = result[0].plot()
-    if hasattr(result[0].boxes, 'id') and result[0].boxes.id is not None:
-        variable.warning()
-    return av.VideoFrame.from_ndarray(annotated_frame, format="bgr24")
+    # if hasattr(result[0].boxes, 'id') and result[0].boxes.id is not None:
+    #     variable.warning()
+    return av.VideoFrame.from_ndarray(result[0].plot(), format="bgr24")
 
 def live_camera(conf):
     st.write('LIVE CAMERA ON')
