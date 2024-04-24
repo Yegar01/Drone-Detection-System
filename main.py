@@ -21,8 +21,3 @@ with col1:
     st.write(':two:')
 with col2:
     st.page_link(os.getcwd()+'/pages/Image.py',label='Images')
-col1, col2 = st.columns([1,250])
-with col1:
-    st.write(':three:')
-with col2:
-    st.page_link(os.getcwd()+'/pages/video.py',label='Video')
