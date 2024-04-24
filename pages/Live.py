@@ -47,6 +47,6 @@ conf = st.sidebar.number_input('Enter Conf. Value',value=conf)
 webrtc_streamer(
     key="example",
     video_frame_callback=video_frame_callback,
-    # rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+    rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
     media_stream_constraints={"video": True, "audio": False},
 )
