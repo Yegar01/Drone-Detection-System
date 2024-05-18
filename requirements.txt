@@ -79,4 +79,3 @@ tzdata==2024.1
 ultralytics==8.2.2
 urllib3==2.2.1
 watchdog==4.0.0
-libgl1-mesa-glx
